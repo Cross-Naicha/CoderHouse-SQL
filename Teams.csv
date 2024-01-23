@@ -1,0 +1,4 @@
+Columna;Tipo;Not Null;Primary Key;Foreign Key
+team_id;INTEGER;Si;Si;
+player_id;INTEGER;Si;;Si
+deck_id;INTEGER;Si;;Si

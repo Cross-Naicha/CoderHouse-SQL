@@ -1,0 +1,5 @@
+Columna;Tipo;Not Null;Primary Key;Foreign Key
+ant_id;INTEGER;Si;Si;-
+ant_name;VARCHAR(100);Si;;
+ant_type;VARCHAR(100);Si;;
+ant_date;DATE;Si;;

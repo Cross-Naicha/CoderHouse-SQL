@@ -1,0 +1,147 @@
+// Use DBML to define your database structure
+// Docs: https://dbml.dbdiagram.io/docs
+
+Table investigators {
+  card_id integer
+  inv_class varchar
+  inv_name varchar
+  inv_nickname varchar
+  inv_traits varchar
+  inv_health integer
+  inv_sanity integer
+  inv_willpower integer
+  inv_intellect integer
+  inv_combat integer
+  inv_agility integer
+  inv_elder_sign_value integer
+  inv_elder_sign_effect integer
+  inv_ability varchar
+  inv_legend varchar
+  inv_deck_size integer
+  inv_deck_building varchar
+  inv_unique_cards varchar
+  chapter_id integer
+  PRIMARY KEY (card_id) 
+}
+
+Table cards_assets {
+  card_id integer
+  card_cost integer
+  card_level integer
+  card_type varchar
+  card_class varchar
+  card_name varchar
+  card_phrase varchar
+  card_traits varchar
+  card_willpower integer
+  card_intellect integer
+  card_combat integer
+  card_wild integer
+  card_agility integer
+  card_passive varchar
+  card_ability varchar
+  card_health integer
+  card_sanity integer
+  card_slot varchar
+  chapter_id integer
+  PRIMARY KEY (card_id)
+}
+
+Table cards_events {
+  card_id integer
+  card_cost integer
+  card_level integer
+  card_type varchar
+  card_class varchar
+  card_name varchar
+  card_traits varchar
+  card_willpower integer
+  card_intellect integer
+  card_combat integer
+  card_agility integer
+  card_wild integer
+  card_ability varchar
+  card_narrative varchar
+  chapter_id integer
+  PRIMARY KEY (card_id)
+}
+
+Table cards_skills {
+  card_id integer
+  card_level integer
+  card_type varchar
+  card_class varchar
+  card_name varchar
+  card_traits varchar
+  card_willpower integer
+  card_intellect integer
+  card_combat integer
+  card_agility integer
+  card_wild integer
+  card_ability varchar
+  card_narrative varchar
+  chapter_id integer
+  PRIMARY KEY (card_id)
+}
+
+Table anthologies {
+  ant_id integer
+  ant_name varchar
+  ant_type varchar
+  ant_date date
+  PRIMARY KEY (ant_id)
+}
+
+Table chapters {
+  chapter_id integer
+  ant_id integer
+  chapter_name varchar
+  PRIMARY KEY (chapter_id)
+}
+
+Table players {
+  player_id integer
+  player_name varchar
+  PRIMARY KEY (player_id)
+}
+
+Table campaigns {
+  cam_id integer
+  team_id integer
+  ant_id integer
+  PRIMARY KEY (chapter_id)
+}
+
+Table teams {
+  team_id integer
+  player_id integer
+  deck_id integer
+  PRIMARY KEY (team_id)
+}
+
+Table decks {
+  deck_id integer
+  card_id integer
+  PRIMARY KEY (deck_id)
+}
+
+Ref: "anthologies"."ant_id" < "chapters"."ant_id"
+
+Ref: "investigators"."chapter_id" > "chapters"."chapter_id"
+
+Ref: "cards_assets"."chapter_id" > "chapters"."chapter_id"
+Ref: "cards_events"."chapter_id" > "chapters"."chapter_id"
+Ref: "cards_skills"."chapter_id" > "chapters"."chapter_id"
+
+Ref: "campaigns"."team_id" < "teams"."team_id"
+
+Ref: "teams"."player_id" > "players"."player_id"
+
+Ref: "decks"."deck_id" > "teams"."deck_id"
+
+Ref: "decks"."card_id" > "investigators"."card_id"
+Ref: "decks"."card_id" > "cards_assets"."card_id"
+Ref: "decks"."card_id" > "cards_events"."card_id"
+Ref: "decks"."card_id" > "cards_skills"."card_id"
+
+Ref: "campaigns"."ant_id" > "anthologies"."ant_id"

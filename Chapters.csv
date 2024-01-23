@@ -1,0 +1,4 @@
+Columna;Tipo;Not Null;Primary Key;Foreign Key
+chapter_id;INTEGER;Si;Si;
+ant_id;INTEGER;Si;;Si
+chapter_name;VARCHAR(100);Si;;

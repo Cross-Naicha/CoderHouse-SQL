@@ -1,0 +1,3 @@
+Columna;Tipo;Not Null;Primary Key;Foreign Key
+deck_id;INTEGER;Si;Si;
+card_id;INTEGER;Si;;Si

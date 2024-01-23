@@ -11,7 +11,6 @@ CREATE TABLE investigators (
   inv_intellect INTEGER,
   inv_combat INTEGER,
   inv_agility INTEGER,
-  inv_wild INTEGER,
   inv_elder_sign_value INTEGER,
   inv_elder_sign_effect INTEGER,
   inv_ability VARCHAR(100),
