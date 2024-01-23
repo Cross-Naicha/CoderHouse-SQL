@@ -1,4 +1,0 @@
-Columna;Tipo;Not Null;Primary Key;Foreign Key
-cam_id;INTEGER;Si;Si;
-team_id;INTEGER;Si;;Si
-ant_id;INTEGER;Si;;Si

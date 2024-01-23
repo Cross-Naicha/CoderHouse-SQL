@@ -1,3 +1,0 @@
-Columna;Tipo;Not Null;Primary Key;Foreign Key
-player_id;INTEGER;Si;Si;-
-player_name;VARCHAR(50);Si;;
